@@ -1,5 +1,8 @@
 package com.cadastro.miguel.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +25,11 @@ public class ClienteController {
     @PostMapping
     public Cliente cadastrar(@RequestBody Cliente cliente) {
         return clienteService.cadastrar(cliente);
+    }
+
+    @GetMapping
+    public List<Cliente> buscarTodos() {
+        return clienteService.buscarTodos();
     }
 
 }

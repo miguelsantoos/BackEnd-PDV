@@ -1,5 +1,7 @@
 package com.cadastro.miguel.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.cadastro.miguel.entity.Cliente;
@@ -17,5 +19,9 @@ public class ClienteService {
     // cadastrar cliente
     public Cliente cadastrar(Cliente cliente) {
         return clienteRepository.save(cliente);
+    }
+
+    public List<Cliente> buscarTodos() {
+        return clienteRepository.findAll();
     }
 }
