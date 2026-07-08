@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cadastro.miguel.entity.Cliente;
 import com.cadastro.miguel.service.ClienteService;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/clientes")
 @RestController
 public class ClienteController {
