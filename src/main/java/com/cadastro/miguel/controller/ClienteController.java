@@ -37,18 +37,19 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<ClienteResponse> cadastrar(@RequestBody ClienteRequest clienteRequest) {
 
+        //Faz retornar na requisição apenas os dados necessários
         URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
                         .path("/{id}")
                         .buildAndExpand(clienteRequest.nome())
                         .toUri();  
-        ClienteResponse clienteResponse = clienteService.cadastrar(clienteRequest);
-        return ResponseEntity.created(location).body(clienteResponse);
+
+        return ResponseEntity.created(location).body(clienteService.cadastrar(clienteRequest));
     }
 
     // Recebe a chamada para buscar todos os clientes
     @GetMapping
-    public List<Cliente> buscarTodos() {
+    public List<ClienteResponse> buscarTodos() {
         return clienteService.buscarTodos();
     }
 

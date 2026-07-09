@@ -6,5 +6,6 @@ import com.cadastro.miguel.entity.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
     
+    boolean existsByEmailEquals(String email);
     
 }

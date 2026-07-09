@@ -22,16 +22,19 @@ public class ClienteService {
 
     // cadastrar cliente
     public ClienteResponse cadastrar(ClienteRequest clienteRequest) {
+
+        // Verifica se já existe email cadastrado
+        if (clienteRepository.existsByEmailEquals(clienteRequest.email())) {
+            throw new IllegalArgumentException("Email já cadastrado");
+        }
+
         Cliente cliente = ClienteMapper.toEntity(clienteRequest);
-
-        Cliente clienteCadastrado = clienteRepository.save(cliente);
-
-        return ClienteMapper.toResponse(clienteCadastrado);
+        return ClienteMapper.toResponse(clienteRepository.save(cliente));
     }
 
     // Busca todos os clientes cadastrados
-    public List<Cliente> buscarTodos() {
-        return clienteRepository.findAll();
+    public List<ClienteResponse> buscarTodos() {
+        return clienteRepository.findAll().stream().map(ClienteMapper::toResponse).toList();
     }
 
     // Busca o cliente por id
