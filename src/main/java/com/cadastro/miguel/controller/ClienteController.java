@@ -43,8 +43,8 @@ public class ClienteController {
 
     // Recebe a chamada para buscar todos os clientes
     @GetMapping
-    public List<ClienteResponse> buscarTodos() {
-        return clienteService.buscarTodos();
+    public ResponseEntity<List<ClienteResponse>> buscarTodos() {
+        return ResponseEntity.ok(clienteService.buscarTodos());
     }
 
     @GetMapping("/{id}")
