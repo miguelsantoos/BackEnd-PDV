@@ -5,7 +5,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.cadastro.miguel.dto.ClienteRequest;
+import com.cadastro.miguel.dto.ClienteResponse;
 import com.cadastro.miguel.entity.Cliente;
+import com.cadastro.miguel.mapper.ClienteMapper;
 import com.cadastro.miguel.repository.ClienteRepository;
 
 @Service
@@ -18,7 +21,13 @@ public class ClienteService {
     } 
 
     // cadastrar cliente
-    public Cliente cadastrar(Cliente cliente) {
+    public ClienteResponse cadastrar(ClienteRequest clienteRequest) {
+
+        Cliente cliente = ClienteMapper().toEntity
+
+
+
+
         return clienteRepository.save(cliente);
     }
 
