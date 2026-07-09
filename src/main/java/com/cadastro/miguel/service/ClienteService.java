@@ -1,6 +1,7 @@
 package com.cadastro.miguel.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,11 @@ public class ClienteService {
     // Busca todos os clientes cadastrados
     public List<Cliente> buscarTodos() {
         return clienteRepository.findAll();
+    }
+
+    // Busca o cliente por id
+    public Optional<Cliente> buscarPorId(Long id) {
+        return clienteRepository.findById(id);
     }
 
     // Deleta todos do banco de dados
