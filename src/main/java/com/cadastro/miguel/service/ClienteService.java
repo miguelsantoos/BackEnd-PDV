@@ -21,7 +21,18 @@ public class ClienteService {
         return clienteRepository.save(cliente);
     }
 
+    // Busca todos os clientes cadastrados
     public List<Cliente> buscarTodos() {
         return clienteRepository.findAll();
+    }
+
+    // Deleta todos do banco de dados
+    public void deletarTodos() {
+        clienteRepository.deleteAll();
+    }
+
+    // Deleta o cliente por id
+    public void deletarPorId(Long id) {
+        clienteRepository.deleteById(id);
     }
 }
