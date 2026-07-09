@@ -1,6 +1,7 @@
 package com.cadastro.miguel.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cadastro.miguel.entity.Cliente;
 import com.cadastro.miguel.service.ClienteService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RequestMapping("/clientes")
 @RestController
@@ -34,6 +37,12 @@ public class ClienteController {
     public List<Cliente> buscarTodos() {
         return clienteService.buscarTodos();
     }
+
+    @GetMapping("/{id}")
+    public Optional<Cliente> buscarPorId(@RequestParam Long id) {
+        return clienteService.buscarPorId(id);
+    }
+    
 
     // Deleta todos os clientes
     @DeleteMapping
