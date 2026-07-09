@@ -15,7 +15,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins(
-                            "https://front-end-pdv.vercel.app"
+                            "https://frontend-pdv-production.up.railway.app/"
                         )
                         .allowedMethods("*");
                     }
