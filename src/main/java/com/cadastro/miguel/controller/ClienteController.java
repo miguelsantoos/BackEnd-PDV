@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cadastro.miguel.dto.ClienteRequest;
 import com.cadastro.miguel.dto.ClienteResponse;
 import com.cadastro.miguel.entity.Cliente;
 import com.cadastro.miguel.service.ClienteService;
@@ -30,7 +31,7 @@ public class ClienteController {
     // Recebe as informações do cliente
     @PostMapping
     public ClienteResponse cadastrar(@RequestBody ClienteRequest clienteRequest) {
-        return clienteService.cadastrar(cliente);
+        return clienteService.cadastrar(clienteRequest);
     }
 
     // Recebe a chamada para buscar todos os clientes

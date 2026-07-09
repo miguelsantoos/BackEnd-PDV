@@ -22,13 +22,8 @@ public class ClienteService {
 
     // cadastrar cliente
     public ClienteResponse cadastrar(ClienteRequest clienteRequest) {
-
-        Cliente cliente = ClienteMapper().toEntity
-
-
-
-
-        return clienteRepository.save(cliente);
+        Cliente cliente = ClienteMapper.toEntity(clienteRequest);
+        return ClienteMapper.toResponse(clienteRepository.save(cliente));
     }
 
     // Busca todos os clientes cadastrados
