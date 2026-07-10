@@ -48,7 +48,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Cliente> buscarPorId(@RequestParam Long id) {
+    public ClienteResponse buscarPorId(@RequestParam Long id) {
         return clienteService.buscarPorId(id);
     }
     

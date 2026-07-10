@@ -38,8 +38,13 @@ public class ClienteService {
     }
 
     // Busca o cliente por id
-    public Optional<Cliente> buscarPorId(Long id) {
-        return clienteRepository.findById(id);
+    public ClienteResponse buscarPorId(Long id) {
+
+        Cliente cliente = clienteRepository.findById(id)
+                            .orElseThrow( () -> 
+                                new IllegalArgumentException("Cliente não encontrado"));
+
+        return ClienteMapper.toResponse(cliente);
     }
 
     // Deleta todos do banco de dados
